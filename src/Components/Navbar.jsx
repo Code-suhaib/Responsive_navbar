@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Link } from "react-router-dom";  // ✅ Keep only Link (Remove BrowserRouter)
+import { Link } from "react-router-dom";  
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
 
