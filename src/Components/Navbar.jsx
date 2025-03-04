@@ -1,33 +1,32 @@
-import React from "react";
+import { useRef } from "react";
+import { Link } from "react-router-dom";  // ✅ Keep only Link (Remove BrowserRouter)
+import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
-import {useRef} from "react";
-import {FaBars , FaTimes} from "react-icons/fa";
-function Navbar(){
-    const navRef = useRef()
+
+function Navbar() {
+    const navRef = useRef();
+
     const showNavbar = () => {
         navRef.current.classList.toggle("responsive_nav");
-        ;
-    }
-    return(
-        <>
+    };
+
+    return (
         <header>
             <h3>Logo</h3>
             <nav ref={navRef}>
-                <a href="#">Home</a>
-                <a href="#">Blog</a>
-                <a href="#">Work</a>
-                <a href="#">About us</a>
-                <button   className="nav-btn nav-btn-close" onClick={showNavbar}>
-                    <FaTimes/>
+                <Link to="/">Home</Link>
+                <Link to="/blog">Blog</Link>
+                <Link to="/work">Work</Link>
+                <Link to="/about">About us</Link>
+                <button className="nav-btn nav-btn-close" onClick={showNavbar}>
+                    <FaTimes />
                 </button>
             </nav>
-            <button  className="nav-btn"  onClick={showNavbar}>
-                <FaBars/>
+            <button className="nav-btn" onClick={showNavbar}>
+                <FaBars />
             </button>
-
         </header>
-        </>
+    );
+}
 
-    )
-};
-export default Navbar
+export default Navbar;
